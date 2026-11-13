@@ -1,0 +1,50 @@
+# copper.asia - Apache rules for Exabytes Plesk (LF line endings)
+Options -MultiViews -Indexes
+# Folders share names with pages (e.g. /products and products.html). Without this, Apache adds a slash
+# and our slash rule removes it again = redirect loop.
+DirectorySlash Off
+DirectoryIndex index.html
+AddDefaultCharset UTF-8
+RewriteEngine On
+
+# 1) www -> non-www. HTTP -> HTTPS is switched on in Plesk (Hosting Settings), not here.
+RewriteCond %{HTTP_HOST} ^www\.copper\.asia$ [NC]
+RewriteRule ^ https://copper.asia%{REQUEST_URI} [R=301,L]
+
+# 2) Legacy URLs from the old site -> current URLs
+RewriteRule ^cms/Brands(?:\.html)?/?$ /cms/Blog [R=301,L]
+RewriteRule ^(?:home|default\.aspx|index\.html)/?$ / [R=301,L,NC]
+RewriteRule ^products\.asp$ /products [R=301,L,NC]
+RewriteRule ^Enquiry(?:\.html)?/?$ /cms/Enquiry [R=301,L,NC]
+
+# 3) Direct .html requests -> clean URL (THE_REQUEST so internal rewrites do not loop)
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.html(?:[?\s]) [NC]
+RewriteRule ^(.+)\.html$ /$1 [R=301,L]
+
+# 4) Trailing slash -> clean URL when a matching .html page exists (e.g. /products/, /cms/Blog/)
+RewriteCond %{REQUEST_URI} ^/(.+)/$
+RewriteCond %{DOCUMENT_ROOT}/%1.html -f
+RewriteRule ^ /%1 [R=301,L]
+
+# 5) Clean URL -> matching .html file (last)
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+?)/?$ $1.html [END]
+
+<IfModule mod_mime.c>
+  AddType image/webp .webp
+  AddType image/svg+xml .svg
+  AddType font/woff .woff
+  AddType font/woff2 .woff2
+</IfModule>
+
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript text/javascript image/svg+xml application/xml text/xml
+</IfModule>
+
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  <FilesMatch "\.(?:css|js|woff2?|ttf|otf|eot|svg|png|jpe?g|gif|webp|avif)$">
+    Header set Cache-Control "public, max-age=2592000"
+  </FilesMatch>
+</IfModule>

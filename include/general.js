@@ -14,13 +14,17 @@ window.mobilecheck = function() {
 
 // Display page active
 $(document).ready(function(){
-	var str=location.href.toLowerCase();
- 
- $('#navmenu-h li a').each(function() {
-  if (str.indexOf(this.href.toLowerCase()) > -1 && $(this).attr('href') != '#') {
-    $(this).parents('li').addClass("active"); 
-    }
-  });
+	function normalizePath(path) {
+		return path.toLowerCase().replace(/\/index\.html$/, '/').replace(/\.html$/, '').replace(/\/+$/, '') || '/';
+	}
+	var currentPath = normalizePath(location.pathname);
+
+	$('#navmenu-h li a').each(function() {
+		var href = $(this).attr('href');
+		if (href && href !== '#' && normalizePath(this.pathname) === currentPath) {
+			$(this).parents('li').addClass('active');
+		}
+	});
 
 	
 	// Clearfield

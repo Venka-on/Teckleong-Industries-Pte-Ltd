@@ -548,7 +548,7 @@ ul#navmenu-h {
         }
 
         ul#navmenu-h li.active a, ul#navmenu-h li a.active {
-            border: 1px solid white;
+            border: none;
             color: #f73939;
         }
 

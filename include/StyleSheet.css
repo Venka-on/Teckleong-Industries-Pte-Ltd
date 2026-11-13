@@ -1240,6 +1240,30 @@ ul.paging {
     height: 185px !important;
 }
 
+.intro_div.nano > .nano-content {
+    padding-right: 8px;
+    scrollbar-color: #f73939 #e8e8e8;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+}
+
+.intro_div.nano > .nano-content::-webkit-scrollbar {
+    display: block;
+    width: 8px;
+}
+
+.intro_div.nano > .nano-content::-webkit-scrollbar-track {
+    background: #e8e8e8;
+}
+
+.intro_div.nano > .nano-content::-webkit-scrollbar-thumb {
+    background: #f73939;
+}
+
+.intro_div.nano > .nano-pane {
+    display: none !important;
+}
+
 .intro_div.advance-storage-intro {
     height: auto !important;
     min-height: 185px;
@@ -1684,7 +1708,10 @@ ul.topnav {
 .greybg {
     background-color: #EFEFEF;
     color: #000;
-    display: block;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    min-height: 88px;
     font-family: "latolight",Arial,Helvetica,sans-serif;
     font-size: 18px !important;
     padding: 20px 15px 20px 25px;
@@ -1878,6 +1905,16 @@ a.sendEnquiry, a.sendEnquiry:link, a.sendEnquiry:visited, a.sendEnquiry:active {
     .intro_div {
         height: auto !important;
         max-height: none;
+    }
+
+    .intro_div.nano {
+        overflow: visible;
+    }
+
+    .intro_div.nano > .nano-content {
+        position: static;
+        overflow: visible;
+        padding-right: 0;
     }
 
     .prodimg {

@@ -127,7 +127,7 @@ if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side frame
             });
         </script>
 <div id="loading" style="display: none;">
-<img alt="Loading" src="images/ajax-loader.gif"/>
+<img alt="Loading" width="85" height="85" src="images/ajax-loader.gif"/>
 </div>
 <div class="hide" id="box">
 <div id="ctl00_panelContactUs">
@@ -193,21 +193,21 @@ if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side frame
 <li><a href="products">Products</a></li>
 <li><a href="cms/Locate-Us" target="_top">Locate Us</a></li>
 <li><a href="cms/Blog" target="_top">Blog</a></li>
-<li><a href="/cms/Enquiry">Enquiry <img alt="enquiry icon" border="0" class="pull-right" src="images/enquiry_icon.png"/>
+<li><a href="/cms/Enquiry">Enquiry <img alt="enquiry icon" border="0" class="pull-right" width="19" height="12" src="images/enquiry_icon.png"/>
 </a></li>
-<li><a href="UploadedImg/pdf/teckleong_terms.pdf" target="blank">Terms of Sales <img alt="sales icon" border="0" class="pull-right" src="images/sales_icon.png"/>
+<li><a href="UploadedImg/pdf/teckleong_terms.pdf" target="blank">Terms of Sales <img alt="sales icon" border="0" class="pull-right" width="9" height="13" src="images/sales_icon.png"/>
 </a></li>
 <li style="margin-left:-10px;">
 <div id="toggle_pc" style="padding-top:10px;">
-<span id="overlay-menu">Search <img alt="Search" border="0" class="pull-right" src="images/search_icon.png"/></span>
+<span id="overlay-menu">Search <img alt="Search" border="0" class="pull-right" width="12" height="12" src="images/search_icon.png"/></span>
 </div>
 <div class="search_div icon_dropdown">
-<a class="search_link" href="javascript:void(0)"><img alt="Search" border="0" src="images/search_icon.png"/></a>
+<button aria-label="Open search" class="search_link" type="button"><img alt="" border="0" width="12" height="12" src="images/search_icon.png"/></button>
 <div class="dropdown">
 <div class="search_box">
 <div id="ctl00_panelSearch">
 <input class="search_input clearfield" id="ctl00_SearchTextBox1" name="ctl00$SearchTextBox1" type="text" value="search by keyword(s)"/>
-<a class="search_btn" href='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$SearchLinkButton1", "", true, "validateSearch", "", false, true))' id="ctl00_SearchLinkButton1">Search</a>
+<button class="search_btn" id="ctl00_SearchLinkButton1" type="button">Search</button>
 </div>
 </div>
 </div>
@@ -218,7 +218,7 @@ if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side frame
 <span>
 <div id="ctl00_panelMobSearch">
 <input class="clearfield" id="ctl00_txtMobileSearch" name="ctl00$txtMobileSearch" type="text" value="search by keyword(s)"/>
-<a class="btn" href='javascript:WebForm_DoPostBackWithOptions(new WebForm_PostBackOptions("ctl00$lbMobileSearch", "", true, "validateMobSearch", "", false, true))' id="ctl00_lbMobileSearch">Search</a>
+<button class="btn" id="ctl00_lbMobileSearch" type="button">Search</button>
 </div>
 </span>
 </div>
@@ -282,42 +282,42 @@ if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side frame
 <!-- <p>Teck Leong Industries Pte Ltd has been a Singapore stockist since 1933. Across four generations, the company has served customers in Singapore and Asia. Its materials include <a href="products">copper</a>, <a href="products">tungsten copper</a>, <a href="products">brass</a>, <a href="products">bronze</a>, <a href="products">aluminium</a> and <a href="products">shim</a>, with cutting to size. Visit the product page to learn about the materials stocked by Teck Leong Industries. The company serves Singapore and Asia and is bizSAFE 3 certified. For questions about the materials or cutting to size, use the <a href="/cms/Enquiry">Request a quote</a> link to contact Teck Leong Industries. This page provides information about the company’s history as a stockist, its materials, cutting to size and its service across Singapore and Asia. Teck Leong Industries Pte Ltd has served customers through four generations. The business has served Singapore and Asia through four generations.</p> -->
 </div>
 <div class="divider">
-<img alt="divider" class="img-responsive" src="UploadedImg/images/divider.png" style="border-width: 0px; border-style: solid;"/></div>
+<img alt="divider" class="img-responsive" width="104" height="17" decoding="async" src="UploadedImg/images/divider.png" style="border-width: 0px; border-style: solid;"/></div>
 </div>
 <div class="hidden-xs">
 <!-- max-width 767px -->
 <div align="center" class="col-lg-4 col-md-4 col-sm-4 c_padright">
-<a href="cms/About-Us"><img alt="Teck Leong Industries team" class="img-responsive" src="UploadedImg/images/home_aboutus.png" style="border-width: 0px; border-style: solid;"/> </a>
+<a href="cms/About-Us"><img alt="Teck Leong Industries team" class="img-responsive" width="290" height="285" loading="lazy" decoding="async" src="UploadedImg/images/home_aboutus.png" style="border-width: 0px; border-style: solid;"/> </a>
 <div class="block_txt">
 <a href="cms/About-Us">About Us</a></div>
 </div>
 <div align="center" class="col-lg-4 col-md-4 col-sm-4">
-<a href="products"><img alt="Copper and metal products from Teck Leong Industries" class="img-responsive" src="UploadedImg/images/home_products.png" style="border-width: 0px; border-style: solid; width: 290px; height: 285px;"/> </a>
+<a href="products"><img alt="Copper and metal products from Teck Leong Industries" class="img-responsive" width="290" height="285" loading="lazy" decoding="async" src="UploadedImg/images/home_products.png" style="border-width: 0px; border-style: solid; width: 290px; height: 285px;"/> </a>
 <div class="block_txt">
 <a href="products">Products</a></div>
 </div>
 <div align="center" class="col-lg-4 col-md-4 col-sm-4 c_padright">
-<a href="cms/Locate-Us"><img alt="Teck Leong Industries location in Singapore" class="img-responsive" src="UploadedImg/images/home_contact.png" style="border-width: 0px; border-style: solid;"/> </a>
+<a href="cms/Locate-Us"><img alt="Teck Leong Industries location in Singapore" class="img-responsive" width="290" height="285" loading="lazy" decoding="async" src="UploadedImg/images/home_contact.png" style="border-width: 0px; border-style: solid;"/> </a>
 <div class="block_txt">
 <a href="cms/Locate-Us">Locate Us</a></div>
 </div>
 </div>
 <!-- end hidden phone -->
 <div class="clear">
-<img alt="" height="1" src="UploadedImg/images/spacer.gif"/></div>
+<img alt="" width="1" height="1" src="UploadedImg/images/spacer.gif"/></div>
 <div class="hidden-lg hidden-md hidden-sm">
 <div align="center" class="col-xs-12">
 <div align="center" class="mob_aboutus">
 <a href="cms/About-Us">About Us </a></div>
 </div>
 <div class="mob_clear">
-<img alt="" height="1" src="UploadedImg/images/spacer.gif"/></div>
+<img alt="" width="1" height="1" src="UploadedImg/images/spacer.gif"/></div>
 <div align="center" class="col-xs-12">
 <div align="center" class="mob_products">
 <a href="products">Products </a></div>
 </div>
 <div class="mob_clear">
-<img alt="" height="1" src="UploadedImg/images/spacer.gif"/></div>
+<img alt="" width="1" height="1" src="UploadedImg/images/spacer.gif"/></div>
 <div align="center" class="col-xs-12">
 <div align="center" class="mob_locateus">
 <a href="cms/Locate-Us">Locate Us </a></div>
@@ -326,7 +326,7 @@ if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side frame
 <div align="center" class="col-lg-4 col-md-4 col-sm-4 c_padright">
 	 </div>
 <div align="center" class="col-lg-4 col-md-4 col-sm-4">
-<img alt="bizSAFE 3 certification logo" class="img-responsive logo-push" src="UploadedImg/images/bizsafe.jpg" style="border-width: 0px; border-style: solid; width: 162px; height: 170px;"/></div>
+<img alt="bizSAFE 3 certification logo" class="img-responsive logo-push" width="162" height="170" loading="lazy" decoding="async" src="UploadedImg/images/bizsafe.jpg" style="border-width: 0px; border-style: solid; width: 162px; height: 170px;"/></div>
 <div align="center" class="col-lg-4 col-md-4 col-sm-4 c_padright">
 	 </div>
 <div align="center" class="col-lg-12 col-md-12 col-sm-12 col-xs-12" style="height:30px;">
@@ -342,7 +342,7 @@ if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side frame
 </main>
 <!--footer -->
 <div class="clear">
-<img alt="" height="1" src="images/spacer.gif"/>
+<img alt="" width="1" height="1" src="images/spacer.gif"/>
 </div>
 <footer>
 <div class="brands">
@@ -357,22 +357,22 @@ if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side frame
 <div class="row">
 <div align="center" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-xxs-12 c_padright valign">
 <a href="https://www.bansooncheong.com/" target="_blank">
-<img alt="Ban Soon Cheong logo" border="0" class="img-responsive" src="images/logo_bsc.png"/>
+<img alt="Ban Soon Cheong logo" border="0" class="img-responsive" width="108" height="102" loading="lazy" decoding="async" src="images/logo_bsc.png"/>
 </a>
 </div>
 <div align="center" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-xxs-12 c_padboth valign">
 <a href="https://www.advancestorage.sg/" target="_blank">
-<img alt="Advance Storage logo" border="0" class="img-responsive" src="images/advance_storage.jpg"/>
+<img alt="Advance Storage logo" border="0" class="img-responsive" width="150" height="35" loading="lazy" decoding="async" src="images/advance_storage.jpg"/>
 </a>
 </div>
 <div align="center" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-xxs-12 c_padboth valign">
 <a href="https://lead.asia/" target="_blank">
-<img alt="Eurometalli logo" border="0" class="img-responsive" src="images/euro_logo1.png"/>
+<img alt="Eurometalli logo" border="0" class="img-responsive" width="152" height="50" loading="lazy" decoding="async" src="images/euro_logo1.png"/>
 </a>
 </div>
 <div align="center" class="col-lg-3 col-md-3 col-sm-3 col-xs-3 col-xxs-12 c_padboth valign">
 <a href="https://www.radiationcontrol.sg/" target="_blank">
-<img alt="Radiation Control (Asia Pacific) logo" border="0" class="img-responsive" src="images/radiation_logo.png"/>
+<img alt="Radiation Control (Asia Pacific) logo" border="0" class="img-responsive" width="165" height="50" loading="lazy" decoding="async" src="images/radiation_logo.png"/>
 </a>
 </div>
 </div>
@@ -402,7 +402,7 @@ if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side frame
 <tr>
 <td align="left" class="FormHeader">
 <input id="ctl00_SearchBox1_SearchTextBox1" name="ctl00$SearchBox1$SearchTextBox1" onfocus="this.value = ''" type="text" value="Search "/>
-<a href="javascript:__doPostBack('ctl00$SearchBox1$SearchLinkButton1','')" id="ctl00_SearchBox1_SearchLinkButton1"><b><u>GO</u></b></a>
+<button id="ctl00_SearchBox1_SearchLinkButton1" type="button"><b><u>GO</u></b></button>
 </td>
 </tr>
 </table>

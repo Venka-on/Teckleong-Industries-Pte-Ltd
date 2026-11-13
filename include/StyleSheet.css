@@ -101,12 +101,14 @@ select:-moz-focusring {
 }
 
 /* <a> link with class */
-a.btn {
+.btn {
     background-color: #f73939;
     color: #fff;
     font: normal 10px 'lato', Arial, Helvetica, sans-serif;
     text-transform: uppercase;
     padding: 10px;
+    border: 0;
+    cursor: pointer;
 }
 
 a.btn02 {
@@ -1312,8 +1314,11 @@ ul.paging {
     }
 }
 
-a.search_link {
+button.search_link {
     padding: 0 0 0 25px !important;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
 }
 
 .icon_dropdown .dropdown {

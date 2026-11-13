@@ -11,12 +11,16 @@
     window.location.href = 'https://www.google.com/search?q=' + encodeURIComponent('site:copper.asia ' + q);
   }
   function findInput(from) {
-    var box = from.closest ? from.closest('.search_box, #ctl00_panelSearch, td, form') : null;
+    var box = from.closest ? from.closest('.search_box, #ctl00_panelSearch, #ctl00_panelMobSearch, td, form') : null;
     return box ? box.querySelector('input[name*="Search"]') : document.querySelector('input[name*="Search"]');
   }
   document.addEventListener('click', function (e) {
-    var a = e.target.closest ? e.target.closest('a') : null;
-    if (a && /SearchLinkButton/.test(a.id || '')) { e.preventDefault(); go(findInput(a)); }
+    var control = e.target.closest ? e.target.closest('a, button') : null;
+    if (!control || !/(SearchLinkButton|lbMobileSearch)/i.test(control.id || '')) return;
+    e.preventDefault();
+    var input = /lbMobileSearch/i.test(control.id) ?
+      document.getElementById('ctl00_txtMobileSearch') : findInput(control);
+    go(input);
   }, true);
   document.addEventListener('keydown', function (e) {
     if (e.key === 'Enter' && isSearchInput(e.target)) { e.preventDefault(); go(e.target); }

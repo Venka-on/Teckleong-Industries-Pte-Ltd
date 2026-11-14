@@ -1876,6 +1876,7 @@ a.sendEnquiry, a.sendEnquiry:link, a.sendEnquiry:visited, a.sendEnquiry:active {
 
     #ctl00_maincontent.homepage {
         padding-top: 24px !important;
+        min-height: 420px;
     }
 
     .home_intro {

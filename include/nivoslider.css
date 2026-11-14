@@ -10,6 +10,17 @@
 /* The Nivo Slider styles */
 #slider img:not(:first-child) { display:none; } 
 
+#slider {
+    aspect-ratio: 800 / 224;
+}
+
+#slider > img:first-child {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: auto;
+    max-width: 100%;
+}
 
 
 .nivoSlider {

@@ -517,6 +517,17 @@ ul#navmenu-h {
     margin-top: 10px;
 }
 
+@media (min-width: 1001px) {
+    ul#navmenu-h > li:not(:last-child) {
+        vertical-align: top;
+    }
+
+    ul#navmenu-h > li:last-child button.search_link {
+        position: relative;
+        top: 24px;
+    }
+}
+
     ul#navmenu-h li {
         display: inline-block;
         position: relative;

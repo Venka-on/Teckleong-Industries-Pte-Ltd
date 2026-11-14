@@ -240,7 +240,7 @@ input {
     transition: all 0.5s ease-in-out;
 }
 
-    input[type='text'], input[type='password'], select, textarea {
+    input[type='text'], input[type='password'], input[type='email'], select, textarea {
         padding: 10px 10px;
         background: white;
         border: 1px solid #ddd;

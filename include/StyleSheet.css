@@ -1787,6 +1787,14 @@ a.sendEnquiry, a.sendEnquiry:link, a.sendEnquiry:visited, a.sendEnquiry:active {
     text-transform: uppercase;
 }
 
+a.sendEnquiry,
+a.btnPDF {
+    display: inline-block;
+    line-height: 20px;
+    margin: 0 8px 8px 0;
+    vertical-align: top;
+}
+
 .logo-push{ margin-right:50px;}
 
 .breadcrumb h1.bc-h1{display:inline;font-size:inherit;font-weight:inherit;line-height:inherit;margin:0;padding:0;color:inherit;font-family:inherit;text-transform:none;letter-spacing:inherit}

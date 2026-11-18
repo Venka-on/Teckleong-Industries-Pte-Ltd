@@ -136,7 +136,7 @@ $message = implode("\r\n", [
 ]);
 
 $headers = [
-    'From: Teck Leong Industries <no-reply@copper.asia>',
+    'From: Teckleong Industries Pte Ltd <no-reply@copper.asia>',
     'Reply-To: ' . $email,
     'MIME-Version: 1.0',
 ];

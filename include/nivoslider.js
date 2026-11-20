@@ -169,9 +169,9 @@
                     if(!child.is('img')){
                         child = child.find('img:first');
                     }
-                    if(child.attr('data-thumb')) vars.controlNavEl.append('<a class="nivo-control" rel="'+ i +'"><img src="'+ child.attr('data-thumb') +'" alt="" /></a>');
+                    if(child.attr('data-thumb')) vars.controlNavEl.append('<a class="nivo-control" href="#" rel="'+ i +'"><img src="'+ child.attr('data-thumb') +'" alt="" /></a>');
                 } else {
-                    vars.controlNavEl.append('<a class="nivo-control" rel="'+ i +'">'+ (i + 1) +'</a>');
+                    vars.controlNavEl.append('<a class="nivo-control" href="#" rel="'+ i +'">'+ (i + 1) +'</a>');
                 }
             }
 
@@ -186,6 +186,7 @@
                 updateSliderImage();
                 vars.currentSlide = $(this).attr('rel') - 1;
                 nivoRun(slider, kids, settings, 'control');
+                return false;
             });
         }
         

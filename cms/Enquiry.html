@@ -199,7 +199,7 @@ if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side frame
 <li><a href="../products">Products</a></li>
 <li><a href="Locate-Us" target="_top">Locate Us</a></li>
 <li><a href="Blog" target="_top">Blog</a></li>
-<li><a href="../cms/Enquiry.html">Enquiry <img alt="enquiry icon" border="0" class="pull-right" src="../images/enquiry_icon.png" width="19" height="12"/>
+<li><a href="../cms/Enquiry">Enquiry <img alt="enquiry icon" border="0" class="pull-right" src="../images/enquiry_icon.png" width="19" height="12"/>
 </a></li>
 <li><a href="../UploadedImg/pdf/teckleong_terms.pdf" target="blank">Terms of Sales <img alt="sales icon" border="0" class="pull-right" src="../images/sales_icon.png" width="9" height="13"/>
 </a></li>
@@ -242,11 +242,55 @@ if (typeof(Sys) === 'undefined') throw new Error('ASP.NET Ajax client-side frame
 <script type="text/javascript">
         function onClientFilesPicked(sender, args) {
             if (args.get_files().length > 1) {
-                alert("Only 1 image file can be uploaded.");
+                alert("Only 1 PDF file can be uploaded.");
                 args.set_cancel(true);
+                return;
+            }
+            var files = args.get_files();
+            for (var i = 0; i < files.length; i++) {
+                var f = files[i] || {};
+                var name = f.name || f.fileName || (f.get_name ? f.get_name() : '') || '';
+                if (name && !/\.pdf$/i.test(name)) {
+                    alert("Only PDF files are accepted. Please upload a PDF file.");
+                    args.set_cancel(true);
+                    return;
+                }
             }
         }
 
+    </script>
+<script type="text/javascript">
+        // Enquiry attachment: PDF only. Fallback for the plain file input,
+        // in case the upload control does not fire onClientFilesPicked.
+        document.addEventListener('DOMContentLoaded', function () {
+            var input = document.getElementById('ctl00_ContentPlaceHolder1_File1');
+            var form = document.getElementById('aspnetForm');
+            function isPdf(file) {
+                var name = (file && (file.name || file.fileName)) || '';
+                return /\.pdf$/i.test(name);
+            }
+            function showError(msg) {
+                var el = document.getElementById('ctl00_ContentPlaceHolder1_lberrorFile');
+                if (el) { el.textContent = msg; }
+            }
+            if (input) {
+                input.addEventListener('change', function () {
+                    showError('');
+                    if (input.files && input.files.length && !isPdf(input.files[0])) {
+                        showError('Only PDF files are accepted. Please upload a PDF file.');
+                        input.value = '';
+                    }
+                });
+            }
+            if (form) {
+                form.addEventListener('submit', function (e) {
+                    if (input && input.files && input.files.length && !isPdf(input.files[0])) {
+                        showError('Only PDF files are accepted. Please upload a PDF file.');
+                        e.preventDefault();
+                    }
+                });
+            }
+        });
     </script>
 <div id="ctl00_ContentPlaceHolder1_panelEnquiry">
 <!-- Google Code for Teck Leong Conversion Page
@@ -539,7 +583,7 @@ Please fill in the following details. Our sales representative will attend to yo
 <div class="clear"></div>
 <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12">
 <span style="color:#3e3e3e">Attachment (Max 4MB - PDF Format)</span><br/>
-<input class="formInput" id="ctl00_ContentPlaceHolder1_File1" name="attachment" onclientfilespicked="onClientFilesPicked" type="file" accept="application/pdf"/>
+<input class="formInput" id="ctl00_ContentPlaceHolder1_File1" name="attachment" onclientfilespicked="onClientFilesPicked" type="file" accept=".pdf,application/pdf"/>
 <br/>
 </div>
 <div class="clear"></div>
@@ -564,6 +608,65 @@ Please fill in the following details. Our sales representative will attend to yo
 <div class="clear">
 <img alt="" height="1" src="../images/spacer.gif" width="1"/>
 </div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "How do I send an enquiry?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Fill in the enquiry form on this page and submit it."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What information should I include in my enquiry?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Include your name, company, address, postal code, telephone number, email address and the details of your enquiry."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I request a quote?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Send your product and size requirements through the enquiry form on this page."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What is the Teck Leong telephone number?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "The telephone number is (65) 6790 9777."
+      }
+    }
+  ]
+}
+</script>
+<section class="faq-section" style="max-width:1140px;margin:0 auto;padding:32px 15px 8px;">
+<h2 style="font-size:26px;margin:0 0 18px;">Frequently Asked Questions</h2>
+<div class="faq-item" style="margin-bottom:18px;">
+<h3 style="font-size:18px;margin:0 0 6px;">How do I send an enquiry?</h3>
+<p style="margin:0;">Fill in the enquiry form on this page and submit it.</p>
+</div>
+<div class="faq-item" style="margin-bottom:18px;">
+<h3 style="font-size:18px;margin:0 0 6px;">What information should I include in my enquiry?</h3>
+<p style="margin:0;">Include your name, company, address, postal code, telephone number, email address and the details of your enquiry.</p>
+</div>
+<div class="faq-item" style="margin-bottom:18px;">
+<h3 style="font-size:18px;margin:0 0 6px;">How do I request a quote?</h3>
+<p style="margin:0;">Send your product and size requirements through the enquiry form on this page.</p>
+</div>
+<div class="faq-item" style="margin-bottom:18px;">
+<h3 style="font-size:18px;margin:0 0 6px;">What is the Teck Leong telephone number?</h3>
+<p style="margin:0;">The telephone number is (65) 6790 9777.</p>
+</div>
+</section>
 <footer>
 <div class="brands">
 <div class="footer_wrapper">
@@ -610,6 +713,7 @@ Please fill in the following details. Our sales representative will attend to yo
 </div>
 </div>
 </div>
+<div style="text-align:center;padding:16px 20px;border-top:1px solid #e2e2e2;background:#fff;"><div style="font-size:14px;color:#222;font-weight:bold;">Teck Leong Industries Pte Ltd. &nbsp;|&nbsp; Tel: (65) 6790 9777 &nbsp;|&nbsp; Fax: (65) 6790 9555</div><div style="font-size:13px;color:#555;margin-top:6px;line-height:1.6;"><span style="color:#b34a1f;font-weight:bold;">Factory:</span> 1 Tuas South Street 8, Singapore 637107 &nbsp;&bull;&nbsp; <span style="color:#b34a1f;font-weight:bold;">Office:</span> 215, 217 &amp; 219 Ubi Ave 4, Intrepid Warehouse Complex, Singapore 408810</div></div>
 <div class="copyright">
 <div class="footer_wrapper">
             	© 2026 Teck Leong Industries Pte Ltd. All Rights Reserved.  
